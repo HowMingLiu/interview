@@ -1,0 +1,453 @@
+/* css reset：清除瀏覽器 CSS 的預設樣式 */
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+*,*::after,*::before{
+    box-sizing: border-box;
+}
+img{
+    max-width: 100%;
+    height: auto;
+}
+
+/* layout CSS */
+/* header */
+.wrap{
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto;
+    max-width: 1024px;
+}
+.wrap .header{
+    background: url(./assets/header_desktop.png);
+    background-size: cover;
+    background-position: 50%;
+    height: 420px;
+}
+@media(max-width: 375px){
+    .wrap .header{
+        background: url(./assets/header_mobile.png);
+        background-position: 50%;
+    }
+}
+.wrap .header .logo{
+    background: rgba(0,0,0,0.35);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px 42px;
+    margin: 0 auto;
+    position: fixed;
+    max-width: 1024px;
+    width: 100%;
+}
+@media(max-width: 768px){
+    .wrap .header .logo{
+        padding: 13px 15px;
+    }
+}
+.wrap .header .logo ul{
+    display: flex;
+}
+.wrap .header .logo ul li{
+    text-align: center;
+}
+.wrap .header .logo ul li a{
+    color: white;
+    text-decoration: none;
+    font-size: 24px;
+    margin-left: 20px;
+}
+.wrap .header .logo .menu{
+    display: none;
+}
+.wrap .header .text{
+    background: rgba(0,0,0,0.35);
+    text-align: center;
+    margin-top: 67px;
+
+}
+.wrap .header .text h1{
+    font-size: 36px;
+    color: white;
+    margin-bottom: 16px;
+}
+@media(max-width: 768px){
+    .wrap .header .text{
+        margin-top: 100px;
+    }
+    .wrap .header .logo ul{
+        display: none;
+        position: absolute;
+        top: 90px;
+        right: 0;
+        left: 0;
+        background-color: black;
+        padding: 10px 0;
+        border-top: 2px dashed white;
+        border-bottom: 2px dashed white;
+    }
+    .wrap .header .logo ul li{
+        width: 33.33333%;
+        
+    }
+    .wrap .header .logo .menu{
+        display: block;
+        z-index: 10;
+    }
+    .wrap .header .text h1 span{
+        display: block;
+    }
+}
+.wrap .header .text p{
+    color: white;
+    line-height: 1.5em;
+}
+/* footer */
+.footer{
+    display: flex;
+    justify-content: space-between;
+    padding: 54px 42px;
+    background-color: #faeae5;
+}
+@media(max-width:375px){
+    .footer{
+        display: block;
+        padding: 54px 12px;
+    }
+}
+.footer .describe{
+    display: flex;
+}
+.footer .describe div h2{
+    font-size: 24px;
+    color: #3d1101;
+    margin-bottom: 16px;
+}
+.footer .describe .about{
+    max-width: 300px;
+}
+.footer .describe .about p{
+    color: #3d1101;
+}
+.footer .describe .connect{
+    margin-left: 20px;
+}
+.footer .describe .connect li{
+    color: #3d1101;
+    list-style: disc;
+    margin-left: 1em;
+}
+@media(max-width:768px){
+    .footer .describe{
+        display: block;
+    }
+    .footer .describe .connect{
+        margin: 30px 0;
+    }
+}
+.footer .logo ul{
+    display: flex;
+    justify-content: end;
+    align-items: center;
+}
+.footer .logo ul li{
+    width: 24px;
+    height: 24px;
+    margin-left: 10px;
+}
+@media(max-width:768px){
+    .footer .logo{
+        text-align: end;
+    }
+}
+
+/* layout end */
+
+/* index css start */
+/* content */
+/* secret */
+.content .secret{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #faeae5;
+    padding: 50px 62px;
+}
+@media(max-width:768px){
+    .content .secret{
+        padding: 50px 30px;
+    }
+}
+.content .secret .title{
+    display: flex;
+    align-items: center;
+    text-align: center;
+    margin-bottom: 30px;
+}
+.content .secret .title span{
+    width: 120px;
+    height: 0;
+    border: 1px solid #979797;
+}
+.content .secret .title p{
+    font-size: 20px;
+    color: #3D1101;
+    line-height: 32px;
+}
+@media(max-width:768px){
+    .content .secret .title span{
+        width: 0;
+        height: 0;
+        border: 0;
+    }
+}
+.content .secret .card{
+    display: flex;
+}
+.content .secret .card div{
+    width: 31.3333%;
+    margin: 0 1% 0;
+    padding: 1em;
+}
+.content .secret .card div h2{
+    font-size: 18px;
+    color: #3D1101;
+    text-align: center;
+    margin: 20px 0 11px;
+}
+.content .secret .card div p{
+    font-size: 16px;
+    color: #3D1101;
+}
+@media(max-width:768px){
+    .content .secret .card{
+        display: block;
+        text-align: center;
+    }
+    .content .secret .card div{
+        width: 100%;
+    }
+}
+/* secret end*/
+
+/* chef */
+.content .chef{
+    display: flex;
+    background-color: #3D1101;
+    padding: 0 42px;
+}
+.content .chef .introduction{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-left: 25px;
+    padding: 1em;
+}
+.content .chef .introduction h1{
+    font-size: 20px;
+    color: #EFE9E7;
+    line-height: 32px;
+}
+.content .chef .introduction p{
+    font-size: 16px;
+    color: #EFE9E7;
+    margin-bottom: 16px;
+}
+@media(max-width:768px){
+    .content .chef{
+        display: block;
+        padding: 0;
+    }
+    .content .chef img{
+        width: 100%;
+    }
+    .content .chef .introduction{
+        margin-left: 0;
+        padding: 31px;
+    }
+}
+/* chef end*/
+
+/* thoughts */
+.content .thoughts{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #faeae5;
+    padding: 50px 42px;
+}
+.content .thoughts h1{
+    font-size: 24px;
+    color: #3D1101;
+}
+.content .thoughts .card{
+    display: flex;
+    align-items: center;
+}
+.content .thoughts .card .section{
+    width: 31.3333%;
+    margin: 0 1% 0;
+    display: flex;
+    align-items: start;
+}
+@media(max-width:768px){
+    .content .thoughts{
+        padding: 50px 50px;
+    }
+    .content .thoughts .card{
+        display: block;
+    }
+    .content .thoughts .card .section{
+        width: 100%;
+        margin-top: 30px;
+    }
+}
+@media(max-width:375px){
+    .content .thoughts{
+        padding: 50px 10px;
+    }
+}
+.content .thoughts .card .section img{
+    margin-right: 13px;
+}
+.content .thoughts .card .section .text h2{
+    font-size: 18px;
+    color: #3D1101;
+    padding: 22px 0;
+}
+.content .thoughts .card .section .text p{
+    font-size: 18px;
+    color: #3D1101
+}
+.content .thoughts .card .section .text div{
+    text-align: end;
+    font-size: 16px;
+    color: rgba(61,17,0,0.75);
+    margin-top: 16px;
+}
+/* thoughts end */
+
+
+/* address */
+.content .address{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 50px 42px;
+}
+
+.content .address h1{
+    font-size: 24px;
+    color: #3D1101;
+    text-align: center;
+    line-height: 1.5em;
+    margin-bottom: 38px;
+}
+.content .address .container{
+    display: flex;
+    width: 100%;
+}
+.content .address .container img,form{
+    width: 48%;
+    margin: 0 1% 0;
+}
+.content .address .container form{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+@media(max-width:768px){
+    .content .address{
+        padding: 50px 10px;
+    }
+    .content .address .container{
+        display: block;
+    }
+    .content .address .container img,form{
+        width: 100%;
+    }
+}
+.content .address .container form span,.radio{
+    font-size: 14px;
+    color: #3D1101;
+    margin-bottom: 6px;
+}
+.content .address .container form 
+input[name="username"],
+input[name="phone"],
+input[name="username"],
+input[name="person"]{
+    height: 32px;
+    margin-bottom: 12px;
+}
+.content .address .container form input[name="veget"]{
+    margin-right: 36px;
+    margin-top: 8px;
+}
+.content .address .container form .sub{
+    text-align: end;
+    margin-top: 28px;
+}
+.content .address .container form input[value="取消"]{
+    background-color: rgba(0,0,0,0.35);;
+    color: white;
+    font-size: 14px;
+    width: 70px;
+    height: 32px;
+    border: 0;
+    border-radius: 5px;
+}
+.content .address .container form input[value="送出"]{
+    background-color: #F56C23;
+    color: white;
+    font-size: 14px;
+    width: 70px;
+    height: 32px;
+    border: 0;
+    border-radius: 5px;
+}
