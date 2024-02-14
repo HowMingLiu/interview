@@ -451,3 +451,135 @@ input[name="person"]{
     border: 0;
     border-radius: 5px;
 }
+/* address end*/
+/* content end*/
+/* index css end */
+
+
+/* cartDesktop start */
+.cartDesktop{
+    display: flex;
+    padding: 30px;
+    background-color: #faeae5;
+}
+.cartDesktop .option{
+    width: 20%;
+}
+@media(max-width:768px){
+    .cartDesktop{
+        flex-direction: column;
+    }
+    .cartDesktop .option{
+        width: auto;
+        text-align: center;
+        margin: 0 auto;
+    }
+}
+.cartDesktop .option .title{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+}
+.cartDesktop .option .title img{
+    width: 24px;
+    height: 24px;
+    margin-right: 24px;
+}
+.cartDesktop .option .title h3{
+    color: #3d1101;
+}
+.cartDesktop .option ul li{
+    padding: 10px;
+    border-bottom: 1px solid black;
+    color: #3d1101;
+}
+.cartDesktop .option .active{
+    background-color: #3D1101;
+    color: white;
+}
+
+
+
+/* pagenation start */
+.cartDesktop .sectionCard{
+    width: 80%;
+}
+@media(max-width:768px){
+    .cartDesktop .sectionCard{
+        width: auto;
+    }
+}
+.sectionCard .content{
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.sectionCard .content nav{
+    margin: 20px;
+}
+.sectionCard .content nav a{
+    display: inline-block;
+    width: 36px;
+    text-align: center;
+    border: 1px solid black;
+    text-decoration: none;
+    margin: 10px;
+}
+.sectionCard .content nav .active{
+    background-color: gray;
+    color: white;
+}
+
+.sectionCard .content .card{
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+}
+.sectionCard .content .card>div{
+    width: 31.3333%;
+    margin: 1%;
+    box-shadow: 1px 1px 2px rgb(90, 82, 82);
+    text-align: center;
+}
+@media(max-width:768px){
+    .sectionCard .content .card>div{
+        width: 48%;
+        margin: 1%;
+    }
+}
+@media(max-width:375px){
+    .sectionCard .content .card>div{
+        width: 98%;
+        margin: 1%;
+    }
+}
+.sectionCard .content .card div h3{
+    font-size: 24px;
+    margin: 10px 0 5px 0;
+    color: #3d1101;
+}
+.sectionCard .content .card div span{
+    font-size: 24px;
+    margin: 20px 0;
+    display: block;
+}
+.sectionCard .content .card .car{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 3px solid orange;
+    margin: 10px;
+}
+.sectionCard .content .card .car img{
+    width: 24px;
+    height: 24px;
+    margin-right: 10px;
+}
+.sectionCard .content .card .car p{
+    color: orange;
+    font-weight: bold;
+}
+/* pagenation end */
