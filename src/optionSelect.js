@@ -38,9 +38,7 @@ oUl.onclick = function(e){
   }else{
     dataNow = dataHamburger;
   }
-  console.log(dataNow)
   navInit(dataNow, perPage);
   allCardPage(dataNow, perPage);
   contentInit(card[0]);
-  console.log(card)
 }
