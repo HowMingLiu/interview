@@ -34,6 +34,12 @@ oLis[2].innerHTML = `不敗漢堡系列 (${dataHamburger.length})`
 oUl.onclick = function(e){
   let target = e.target;
   if(target.nodeName.toUpperCase() == "LI"){
+     // 切換 card 顯示
+    if(oCard.style.display == "none"){
+      oCard.style.display = "flex";
+      oNav.style.display = "flex";
+      oTable.style.display = "none";
+    }
     for(let i = 0; i < oLis.length; i++){
       oLis[i].index = i;
       oLis[i].className = "none";
@@ -61,6 +67,12 @@ oUl.onclick = function(e){
 // 搜尋功能
 let oSearch = document.querySelector(".sectionCard .top #filterInput");
 oSearch.onchange = function(){
+  // 切換 card 顯示
+  if(oCard.style.display == "none"){
+    oCard.style.display = "flex";
+    oNav.style.display = "flex";
+    oTable.style.display = "none";
+  }
   let keyWord = oSearch.value
   let dataFilter = dataNow.filter( item => {
     return item.title.includes(keyWord);
