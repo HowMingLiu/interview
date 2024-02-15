@@ -2,6 +2,8 @@ import { data } from './data.js'
 
 let card = [];
 
+let nowPage = 1;
+
 // 設定每頁幾筆資料
 let perPage = 6;
 
@@ -39,6 +41,8 @@ oNav.addEventListener("click", (e)=>{
         allA[getPage()].className = "active";
         contentInit(card[getPage() - 1]);
     }
+    // 輸出當前所在頁面
+    nowPage = getPage();
 })
 
 // 當前分頁初始化 - 用來抓取並設定當前所在分頁狀態
@@ -60,7 +64,7 @@ function navInit(data, perPage = 6){
     }
     oNav.innerHTML =  `<a href="#">Prev</a>${str}<a href="#">Next</a>`
     let allA = oNav.querySelectorAll('a');
-    allA[getPage()].className = "active";
+    allA[1].className = "active";
     
 }
 
@@ -113,4 +117,4 @@ navInit(data, perPage);
 allCardPage(data, perPage);
 contentInit(card[0]);
 
-export { navInit, allCardPage, contentInit, card, perPage }
+export { navInit, allCardPage, contentInit, card, perPage, pageData, nowPage }

@@ -45,7 +45,15 @@
 
         <div class="sectionCard">
           <div class="top">
-
+            <div class="search">
+              <input type="text" id="filterInput" placeholder="搜尋"/>
+              <label for="filterInput"><img src="./assets/search-alt.svg"></label>
+            </div>
+            <div class="shoppingCart">
+              <p>購物車</p>
+              <img src="./assets/shopping-cart.svg">
+              <span>99</span>
+            </div>
           </div>
 
           <div class="content">
@@ -74,6 +82,24 @@
               <a href="#">3</a>
               <a href="#">Next</a> -->
             </nav>
+            <table>
+              <tr>
+                <th>品項</th>
+                <th>數量</th>
+                <th>單價</th>
+                <th>總價</th>
+                <th>修改</th>
+              <!-- </tr>
+                <td>經典薯條套餐1</td>
+                <td>4</td>
+                <td>120</td>
+                <td>480</td>
+                <td>
+                  <button>-</button>
+                  <button>+</button>
+                </td>
+              <tr> -->
+            </table>
           </div>
         </div>
       </div>
@@ -104,7 +130,6 @@
       </div>
     </div>
   </body>
-  <script type="module" src="./src/pagenation.js"></script>
   <script type="module" src="./src/menu.js"></script>
-  <script type="module" src="./src/optionSelect.js"></script>
+  <script type="module" src="./src/main.js"></script>
 </html>

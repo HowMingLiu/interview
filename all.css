@@ -462,12 +462,14 @@ input[name="person"]{
     padding: 30px;
     background-color: #faeae5;
 }
+/* option start */
 .cartDesktop .option{
     width: 20%;
 }
 @media(max-width:768px){
     .cartDesktop{
         flex-direction: column;
+        padding: 0;
     }
     .cartDesktop .option{
         width: auto;
@@ -498,6 +500,70 @@ input[name="person"]{
     background-color: #3D1101;
     color: white;
 }
+/* option end */
+
+/* top start */
+.sectionCard .top{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px;
+}
+.sectionCard .top .search{
+    width: 60%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.sectionCard .top .search input{
+    width: 90%;
+    height: 20px;
+    z-index: 1;
+    border: 2px solid #3D1101;
+
+}
+.sectionCard .top .search label{
+    z-index: 2;
+    margin-left: -3px;
+    margin-top: 2.5px;
+}
+.sectionCard .top .search img{
+    height: 20px;
+    background-color: #3D1101;
+}
+.sectionCard .top .shoppingCart{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+.sectionCard .top .shoppingCart p{
+    color: #3d1101;
+    padding-right: 10px;
+    margin-right: 10px;
+    border-right: 2px solid #3d1101;
+    display: inline-block;
+}
+.sectionCard .top .shoppingCart img{
+    width: 24px;
+    height: 24px;
+}
+.sectionCard .top .shoppingCart span{
+    width: 20px;
+    height: 20px;
+    background-color: orange;
+    line-height: 20px;
+    color: white;
+    text-align: center;
+    border-radius: 10px;
+    position: absolute;
+    right: -10px;
+    top: -10px;
+    display: none;
+}
+
+/* top end */
+
 
 /* pagenation start */
 .cartDesktop .sectionCard{
@@ -579,5 +645,27 @@ input[name="person"]{
 .sectionCard .content .card .car p{
     color: orange;
     font-weight: bold;
+}
+
+.sectionCard .content table{
+    border-collapse: collapse;
+}
+.sectionCard .content table th{
+    text-align: left;
+    font-weight: bold;
+    color: #3d1101;
+    padding: 10px 30px;
+}
+.sectionCard .content table td{
+    padding: 10px 30px;
+    color: #3d1101;
+}
+@media(max-width:768px){
+    .sectionCard .content table th{
+        padding: 10px 10px;
+    }
+    .sectionCard .content table td{
+        padding: 10px 10px;
+    }
 }
 /* pagenation end */
