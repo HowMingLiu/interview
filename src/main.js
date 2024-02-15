@@ -9,9 +9,6 @@ let dataNow = data;
 // 購物車使用，此為當前畫面對應的 card
 let dataTemp = data;
 
-// 整理後的購物車資料
-let tableData = [];
-
 // 過濾薯條套餐的資料
 let dataFries = data.filter( item => {
   return item.title.includes("薯條");
@@ -94,10 +91,10 @@ oSearch.onchange = function(){
 let shoppingCartData = []; // 購物車內的商品
 let oCard = document.querySelector(".sectionCard .content .card");
 // 購物車圖示右上角的數字
-let oCart = document.querySelector(".sectionCard .top .shoppingCart span")
+let oCart = document.querySelector(".sectionCard .top .shoppingCart span");
 // 添加點擊事件
 oCard.onclick = function(e){
-  let aDivs = oCard.querySelectorAll(".sectionCard .content .card>div")
+  let aDivs = oCard.querySelectorAll(".sectionCard .content .card>div");
   for(let i = 0; i < aDivs.length; i++){
     aDivs[i].index = i
   }
@@ -109,28 +106,8 @@ oCard.onclick = function(e){
     let y = target.parentNode.parentNode.index;
     shoppingCartData.push(dataTemp[y + ((nowPage - 1) * 6)]);
     // 購物車右上角的數量
-    oCart.style.display = "block"
+    oCart.style.display = "block";
     oCart.innerHTML = shoppingCartData.length;
-
-    // 初始化購物車
-    dataShopping.forEach(item => {  
-      item.count = 0;
-    })
-    // 購物車整理後的資料
-    shoppingCartData.forEach((item1) => {
-      dataShopping.forEach((item2, index) => {
-        if(item1.title == item2.title){
-          dataShopping[index].count++;
-          dataShopping[index].totalPrice = dataShopping[index].count * dataShopping[index].price;
-        }
-      })
-    })
-    console.log(shoppingCartData)
-
-    // 過濾數量不等於 0 的餐點
-    tableData = dataShopping.filter(item => {
-      return item.count != 0;
-    })
   }
 }
 
@@ -140,16 +117,18 @@ let oCartImg = document.querySelector(".sectionCard .top .shoppingCart img");
 let oNav = document.querySelector(".sectionCard .content nav");
 let oTable = document.querySelector(".sectionCard .content table");
 oCartImg.onclick = function(){
-  if(oCard.style.display == "none"){
-    oCard.style.display = "flex";
-    oNav.style.display = "flex";
-    oTable.style.display = "none";
-  }else{
-    // 製作 table
-    setTable(oTable, tableData)
-
-    oCard.style.display = "none";
-    oNav.style.display = "none";
-    oTable.style.display = "block";
+  if(oCart.innerHTML){
+    if(oCard.style.display == "none"){
+      oCard.style.display = "flex";
+      oNav.style.display = "flex";
+      oTable.style.display = "none";
+    }else{
+      // 製作 table
+      setTable(oTable, shoppingCartData)
+  
+      oCard.style.display = "none";
+      oNav.style.display = "none";
+      oTable.style.display = "block";
+    }
   }
 }

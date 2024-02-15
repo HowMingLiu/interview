@@ -650,6 +650,9 @@ input[name="person"]{
 .sectionCard .content table{
     border-collapse: collapse;
 }
+.sectionCard .content table tr{
+    border-top: 1px solid #3d1101;
+}
 .sectionCard .content table th{
     text-align: left;
     font-weight: bold;
