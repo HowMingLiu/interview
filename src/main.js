@@ -130,6 +130,15 @@ oCard.onclick = function(e){
     }, function(){
       // 刪除添加的照片
       animateCard.parentNode.removeChild(animateCard);
+      starMove(oCartImg, {
+        width: 35,
+        height: 35
+      }, function(){
+        starMove(oCartImg, {
+          width: 24,
+          height: 24
+        })
+      })
     })
   }
 }
