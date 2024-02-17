@@ -18,16 +18,16 @@ export function starMove(node, cssObj, complete){
             }
             let speed = (iTarget - iCur) / 8;
             speed = speed > 0 ? Math.ceil(speed) : Math.floor(speed);
-
             
+
             if(attr == "opacity"){
                 iCur += speed;
                 node.style.opacity = iCur / 100;
                 node.style.filter = `alpha(opacity${iCur})`;
             }else{
-                node.style[attr] = iCur + speed + "px";
+                node.style[attr] = iCur + speed  + "px";
             }
-
+            
             if(iCur != iTarget){
                 isEnd = false;
             }

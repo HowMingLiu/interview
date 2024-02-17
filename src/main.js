@@ -121,9 +121,11 @@ oCard.onclick = function(e){
     animateCard.style.position = "absolute"
     animateCard.style.left = target.parentNode.parentNode.offsetLeft + "px"
     animateCard.style.top = target.parentNode.parentNode.offsetTop + "px"
-
+    animateCard.style.width = "150px"
+    animateCard.style.height = "150px"
+    animateCard.style.borderRadius = "750px"
     starMove(animateCard, {
-      width: 40,
+      width: 20,
       height: 20,
       left: oCartImgLeft,
       top: oCartImgTop,
@@ -131,12 +133,10 @@ oCard.onclick = function(e){
       // 刪除添加的照片
       animateCard.parentNode.removeChild(animateCard);
       starMove(oCartImg, {
-        width: 35,
-        height: 35
+        padding: 2
       }, function(){
         starMove(oCartImg, {
-          width: 24,
-          height: 24
+          padding: 0
         })
       })
     })
