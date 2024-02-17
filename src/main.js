@@ -1,7 +1,7 @@
 import { data } from './data.js';
-import { dataShopping } from './dataShopping.js';
 import { navInit, allCardPage, contentInit, card, perPage, nowPage } from './pagenation.js';
 import { setTable } from './table.js';
+import { starMove } from './starMove.js'
 
 // option 使用
 let dataNow = data;
@@ -87,12 +87,13 @@ oSearch.onchange = function(){
     alert("沒有符合的餐點名稱")
   }
 }
+
 // 購物車
 let shoppingCartData = []; // 購物車內的商品
 let oCard = document.querySelector(".sectionCard .content .card");
 // 購物車圖示右上角的數字
 let oCart = document.querySelector(".sectionCard .top .shoppingCart span");
-// 添加點擊事件
+// 添加點擊事件 - 將商品加入購物車
 oCard.onclick = function(e){
   let aDivs = oCard.querySelectorAll(".sectionCard .content .card>div");
   for(let i = 0; i < aDivs.length; i++){
@@ -108,6 +109,28 @@ oCard.onclick = function(e){
     // 購物車右上角的數量
     oCart.style.display = "block";
     oCart.innerHTML = shoppingCartData.length;
+
+    // 添加動畫
+    let animateCard = target.parentNode.parentNode.querySelector("img").cloneNode(true);
+    oCard.appendChild(animateCard);
+    // 取得購物車小圖示的座標
+    let oCartImgLeft = oCartImg.offsetLeft + oCartImg.parentNode.offsetLeft
+    let oCartImgTop = oCartImg.offsetTop + oCartImg.parentNode.offsetTop
+
+    // 設置新添加的圖片初始位置與原圖片位置相同
+    animateCard.style.position = "absolute"
+    animateCard.style.left = target.parentNode.parentNode.offsetLeft + "px"
+    animateCard.style.top = target.parentNode.parentNode.offsetTop + "px"
+
+    starMove(animateCard, {
+      width: 40,
+      height: 20,
+      left: oCartImgLeft,
+      top: oCartImgTop,
+    }, function(){
+      // 刪除添加的照片
+      animateCard.parentNode.removeChild(animateCard);
+    })
   }
 }
 
