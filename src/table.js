@@ -24,10 +24,10 @@ export function setTable(tableDOM, shoppingCartData){
         oCount.innerHTML = tableData[i/2].count;
         // 修改表格總價
         let oTotalPrice = tableDOM.querySelector(`.totalPrice${i/2}`)
-        oTotalPrice.innerHTML = tableData[i/2].count * tableData[i/2].price;
+        oTotalPrice.innerHTML = tableData[i/2].count * parseInt(tableData[i/2].price * tableData[i/2].discountOff);
         // 修改表格總金額
         let oTotal = tableDOM.querySelector(".total")
-        oTotal.innerHTML = oTotal.innerHTML - tableData[i/2].price;
+        oTotal.innerHTML = oTotal.innerHTML - parseInt(tableData[i/2].price * tableData[i/2].discountOff);
         // 當數量為 0 時隱藏表格
         if(oCount.innerHTML == 0){
           oCount.parentNode.style.display = "none";
@@ -62,10 +62,10 @@ export function setTable(tableDOM, shoppingCartData){
         oCount.innerHTML = tableData[(i + 1) / 2 - 1].count;
         // 修改單品總價
         let oTotalPrice = tableDOM.querySelector(`.totalPrice${(i + 1) / 2 - 1}`)
-        oTotalPrice.innerHTML = tableData[(i + 1) / 2 - 1].count * tableData[(i + 1) / 2 - 1].price;
+        oTotalPrice.innerHTML = tableData[(i + 1) / 2 - 1].count * parseInt(tableData[(i + 1) / 2 - 1].price * tableData[(i + 1) / 2 - 1].discountOff);
         // 修改表格總金額
         let oTotal = tableDOM.querySelector(".total")
-        oTotal.innerHTML = parseInt(oTotal.innerHTML) + tableData[(i + 1) / 2 - 1].price;
+        oTotal.innerHTML = parseInt(oTotal.innerHTML) + parseInt(tableData[(i + 1) / 2 - 1].price*tableData[(i + 1) / 2 - 1].discountOff);
         // 購物車圖示右上角的數字
         let oCart = document.querySelector(".sectionCard .top .shoppingCart span");
         oCart.innerHTML = shoppingCartData.length;
@@ -85,7 +85,7 @@ function dataOrg(shoppingCartData){
     dataShopping.forEach((item2, index) => {
       if(item1.title == item2.title){
         dataShopping[index].count++;
-        dataShopping[index].totalPrice = dataShopping[index].count * dataShopping[index].price;
+        dataShopping[index].totalPrice = dataShopping[index].count * parseInt(dataShopping[index].price * dataShopping[index].discountOff);
       }
     })
   })
@@ -113,7 +113,7 @@ function createTable(tableDOM, tableData){
     newTr.innerHTML = `
       <td>${item.title}</td>
       <td class="count${index}">${item.count}</td>
-      <td>${item.price}</td>
+      <td>${parseInt(item.price * item.discountOff)}</td>
       <td class="totalPrice${index}">${item.totalPrice}</td>
     `
     tableDOM.appendChild(newTr)
