@@ -96,19 +96,37 @@ function allCardPage(data,perPage = 6){
 function contentInit(data){
     let allStr = "";
     for(let i = 0; i < data.length; i++){
-        allStr += `
-        <div>
-            <img src="${data[i]["photoSrc"]}">
-            <h3>${data[i]["title"]}</h3>
-            <p>${data[i]["engTitle"]}</p>
-            <p>--------------</p>
-            <span>$${data[i]["price"]}</span>
-            <div class="car">
-                <img src="./assets/shopping-cart2.svg">
-                <p>加入購物車</p>
-            </div>
-        </div>
-        `
+        if(data[i].isDiscount){
+            allStr += `
+                <div>
+                    <span class="discountTag">${100 - data[i]["discountOff"]*100}% OFF</span>
+                    <img src="${data[i]["photoSrc"]}">
+                    <h3>${data[i]["title"]}</h3>
+                    <p>${data[i]["engTitle"]}</p>
+                    <p>--------------</p>
+                    <span class="del">$${data[i]["price"]}</span>
+                    <span class="discountPrice">$${parseInt(data[i]["price"]*data[i]["discountOff"])}</span>
+                    <div class="car">
+                        <img src="./assets/shopping-cart2.svg">
+                        <p>加入購物車</p>
+                    </div>
+                </div>
+            `
+        }else{
+            allStr += `
+                <div>
+                    <img src="${data[i]["photoSrc"]}">
+                    <h3>${data[i]["title"]}</h3>
+                    <p>${data[i]["engTitle"]}</p>
+                    <p>--------------</p>
+                    <span>$${data[i]["price"]}</span>
+                    <div class="car">
+                        <img src="./assets/shopping-cart2.svg">
+                        <p>加入購物車</p>
+                    </div>
+                </div>
+            `
+        }
     }
     oContent.innerHTML = allStr;
 }
